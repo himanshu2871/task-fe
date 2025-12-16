@@ -1,16 +1,48 @@
-# React + Vite
+A full-stack web application that enables NGOs to submit monthly impact reports (individually or in bulk) and allows administrators to view aggregated insights via a dashboard.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend: https://task-fe-pink.vercel.app/
 
-Currently, two official plugins are available:
+Backend API: https://task-be-mgfr.onrender.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Frontend Tech Stack:
 
-## React Compiler
+React (Vite)
+React Router
+Fetch API
+Deployed on Vercel
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Features:
 
-## Expanding the ESLint configuration
+1️⃣ Monthly Report Submission
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+NGOs can submit a single monthly report
+Basic validation handled on frontend
+Idempotency ensured on backend
+
+2️⃣ Bulk Report Upload
+
+Upload CSV containing multiple monthly reports
+Backend processes CSV asynchronously
+Frontend polls job status (Processed X of Y rows)
+Partial failures handled gracefully
+
+3️⃣ Admin Dashboard
+
+View aggregated data for a selected month:
+Total NGOs reporting
+Total people helped
+Total events conducted
+Total funds utilized
+
+Sample CSV Format:
+
+ngo_id,month,people_helped,events_conducted,funds_utilized
+NGO001,2024-01,120,3,50000
+NGO002,2024-01,250,6,120000
+
+How to start:
+
+cd ngo-reporting-frontend
+npm install
+npm run dev
+
