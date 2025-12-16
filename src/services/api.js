@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://task-be-mgfr.onrender.com";
 
 export async function submitReport(data) {
   const res = await fetch(`${BASE_URL}/reports`, {
